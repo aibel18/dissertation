@@ -1,0 +1,1059 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Slides of the Master">
+  <meta name="author" content="Abel Ticona">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <title>Thesis-Abel</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="dist/theme/black.css" id="theme"> -->
+
+  <!-- Theme used for syntax highlighted code -->
+  <!-- <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"> -->
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="presentation" data-transition="fade-in fade-out">
+        <div class="top">
+          <img src="logo-dark.png" style="width: 200px;float: right;" />
+          <div class="title">
+            Towards Interactive Simulation of Soft, Rigid and Viscous Objects in Immersive Virtual Reality
+          </div>
+        </div>
+        <div class="bottom">
+
+          <div class="title-data">
+            <span style="font-size: 1.5rem;padding-bottom: 0.8rem;">A Dissertation Presentation:</span>
+            <span>Abel Ticona Larico</span>
+            <span style="font-size: 1.75rem;color: #546e7a">Federal University of Rio Grande do Sul</span>
+            <span style="font-size: 1.5rem;padding: 0.8rem 0 0.6rem;">Advisors:</span>
+            <span style="font-size: 1.75rem;color:#546e7a">Luciana Nedel</span>
+            <span style="font-size: 1.75rem;color:#546e7a">Rafael Torchelsen</span>
+            <!-- <span style="font-size: 1.5rem;">July 03 2020</span> -->
+          </div>
+        </div>
+      </section>
+      <div class="banner"><img src="logo-dark.png" style="width: 100px;float: right;" /></div>
+      <section data-transition="fade-in fade-out">
+        <h1>Several Materials</h1>
+        <table style="width: 100%;">
+          <th style="width: 25%;">
+            <img src="assets/motivation/m3_clothes.jpg" style="width: 100%;" />
+            <img src="assets/motivation/m5_water.jpg" style="width: 100%;" />
+            <img src="assets/motivation/m8_viscous.jpg" style="width: 100%;" />
+          </th>
+          <th style="width: 25%;">
+            <img src="assets/motivation/m2_sand.jpg" style="width: 100%;" />
+            <img src="assets/motivation/m6_snow.jpg" style="width: 100%;" />
+          </th>
+          <th style="width: 25%;">
+            <img src="assets/motivation/m4_jelly.jpg" style="width: 100%;" />
+            <img src="assets/motivation/m7_rods.png" style="width: 100%;" />
+          </th>
+          <th style="width: 25%;">
+            <img src="assets/motivation/m1_wood.jpeg" style="width: 100%;" />
+            <img src="assets/motivation/m9_vapor.jpg" style="width: 100%;" />
+          </th>
+        </table>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Phenomenons</h1>
+        <div style="width: 100%; display:flex">
+          <div style="width: 25%;position: relative;">
+            <img src="assets/motivation/f3_freezing.jpg" style="width: 100%;position: absolute;bottom: 0; left: 0;" />
+          </div>
+          <div style="width: 25%;position: relative;">
+            <img src="assets/motivation/f1_melting.jpg" style="width: 100%;" />
+            <img src="assets/motivation/f2_vaporization.jpg" style="width: 100%;" />
+            <img src="assets/motivation/f5_condensation.jpg" style="width: 100%;" />
+          </div>
+          <div style="width: 25%;position: relative;">
+            <img src="assets/motivation/f4_crushing.jpg"
+              style="width: 100%; position: absolute;bottom: 50%; left: 0;" />
+            <img src="assets/motivation/f7_breaking.jpg" style="width: 100%;position: absolute;bottom: 0; left: 0;" />
+          </div>
+          <div style="width: 25%;position: relative;">
+            <img src="assets/motivation/f6_fire.jpg" style="width: 100%; position: absolute; bottom: 0; left: 0;" />
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Interaction</h1>
+        <div style="width: 100%; display:flex">
+          <div style="width: 33.33%;position: relative;">
+            <img src="assets/motivation/i4_interacion.jpg"
+              style="width: 100%;position: absolute;bottom: 50%; left: 0;" />
+            <img src="assets/motivation/i2_interaction.jpg"
+              style="width: 100%;position: absolute;bottom: 0; left: 0;" />
+          </div>
+          <div style="width: 33.33%;position: relative;">
+            <img src="assets/motivation/i3_interaction.jpg" style="width: 100%;" />
+            <img src="assets/motivation/i1_interaction.jpg" style="width: 100%;" />
+          </div>
+          <div style="width: 33.33%;position: relative;">
+            <img src="assets/motivation/i5_interaction.jpg" style="width: 100%; position: absolute; left: 0;" />
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Objective</h1>
+
+        <div class="columns" style="padding-top: 6rem;">
+          <div class="column" style="width: 33.33%;">
+            <span class="fragment highlight-blue" style="font-size: 2rem;">Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li class="fragment">Explores Iterative Methods</li>
+              <li class="fragment">Implement Physically-Based methods</li>
+              <li class="fragment">Unifier materials</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 33.33%;">
+            <span class="fragment highlight-red" style="font-size: 2rem;">Phase-Change</span>
+            <ul style="padding: 1rem 0;">
+              <li class="fragment">Model Heat Transfer</li>
+              <li class="fragment">Modifying properties in function of the heat</li>
+              <li class="fragment">Create a general Method to Phase-Change</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 33.33%;">
+            <span class="fragment highlight-green" style="font-size: 2rem;">Interactive Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li class="fragment">Integrate simulations in virtual environments</li>
+              <li class="fragment">Create tools that allows to interact</li>
+              <li class="fragment">Evaluate the experience</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Review Physically-Based Models</h1>
+        <div class="columns">
+          <div class="column" style="width: 28%;">
+            <img src="assets/relatedworks/rw1_1.png" style="width: 100%;position: absolute;left: 0;" />
+          </div>
+          <div class="column" style="width: 40%;">
+            <img src="assets/relatedworks/rw1_2.png" style="width: 100%;padding-top: 5rem;" />
+            <br><br><br>
+            <b>[Nealen et al. 2006]</b>
+          </div>
+          <div class="column" style="width: 32%;">
+            <img src="assets/relatedworks/rw1_3.png" style="width: 100%; position: absolute; left: 0;" />
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Position based dynamics</h1>
+
+        <img src="assets/relatedworks/rw2_1.png" style=" max-height: 40%; max-width: 100%;" />
+        <b>[Müller et al. 2007]</b><br><br><br>
+
+        <img src="assets/relatedworks/rw2_2.png" style="max-height: 40%; max-width: 100%;" />
+        <b>[Bender et al. 2015]</b>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Projective Dynamic vs XPBD</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <img src="assets/relatedworks/rw3_1.png" style="width: 100%;" />
+            <img src="assets/relatedworks/rw3_2.png" style="width: 100%;" />
+            <b>[Bouaziz et al. 2014]</b>
+          </div>
+          <div class="column" style="width: 50%;">
+            <img src="assets/relatedworks/rw3_3.png" style="width: 100%;" />
+            <img src="assets/relatedworks/rw3_4.png" style="width: 100%;" />
+            <b>[Macklin et al. 2016]</b>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-change methods</h1>
+        <div class="columns">
+          <div class="column" style="width: 33%">
+            <img src="assets/relatedworks/pc1_1.png" style="width: 100%;" />
+            <img src="assets/relatedworks/pc1_2.png" style="width: 100%;" />
+            <b>[Stomakhin et al. 2014]</b><br><br>
+            <img src="assets/relatedworks/pc5_1.png" style="width: 100%;" />
+            <b>[Hochstetter et al. 2017]</b><br>
+          </div>
+          <div class="column" style="width: 33%;">
+            <img src="assets/relatedworks/pc3_1.png" style="width: 100%;" />
+            <b>[Yang et al. 2017a]</b>
+            <img src="assets/relatedworks/pc4_1.png" style="width: 100%;" />
+            <b>[Yang et al. 2017b]</b>
+          </div>
+          <div class="column" style="width: 33%;">
+            <img src="assets/relatedworks/pc2_1.png" style="width: 100%;" />
+            <b>[Weiler et al. 2018]</b>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-change methods</h1>
+        <div class="columns">
+          <div class="column" style="width:30%">
+            <img src="assets/relatedworks/pc6_1.png" style="width: 100%;" />
+          </div>
+          <div class="column" style="width: 30%;">
+            <img src="assets/relatedworks/pc6_2.png" style="width: 100%;" />
+            <b>[Bian et al. 2018]</b><br>
+          </div>
+          <div class="column" style="width: 40%;">
+            <div style="margin: auto;">
+              <p class="fragment" style="font-size: 2rem; padding-top: 6rem;">Similarities</p>
+              <ul style="padding: 1rem 0;">
+                <li class="fragment">unifies all phenomena</li>
+                <li class="fragment">used functions to modify parameters</li>
+              </ul>
+              <p class="fragment" style="font-size: 2rem;">Differences</p>
+              <ul>
+                <li class="fragment check">mass transfer mechanic</li>
+                <li class="fragment error">used PBD</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Designing in VR</h1>
+        <div class="columns">
+          <div class="column" style="width: 70%">
+            <div class="columns">
+              <div class="column" style="width: 33.33%; padding: 0 1rem;">
+                <img src="assets/relatedworks/md1_1.png" style="width: 100%;" />
+                <b style="font-size: 1rem;">CanvoX</b><br>
+                <b style="font-size: 1rem;">[Kim et al. 2017]</b>
+              </div>
+              <div class="column" style="width: 33.33%; padding: 0 1rem;">
+                <img src="assets/relatedworks/md2_1.png" style="width: 100%;" />
+                <b style="font-size: 1rem;">SymviosisSketch</b><br>
+                <b style="font-size: 1rem;">[Arora et al. 2018]</b>
+              </div>
+              <div class="column" style="width: 33.33%; padding: 0 1rem;">
+                <img src="assets/relatedworks/md3_1.png" style="width: 100%;" />
+                <b style="font-size: 1rem;">Ontlus</b><br>
+                <b style="font-size: 1rem;">[Chen et al. 2018]</b>
+              </div>
+            </div>
+            <br>
+            <div class="columns">
+              <div class="column" style="width: 50%; padding: 0 1rem;">
+                <img src="assets/relatedworks/md4_1.png" style="width: 100%;" />
+                <b style="font-size: 1rem;">Quill</b><br>
+                <b style="font-size: 1rem;">[by Facebook]</b>
+              </div>
+              <div class="column" style="width: 50%; padding: 0 1rem;">
+                <img src="assets/relatedworks/md5_1.png" style="width: 100%;" />
+                <b style="font-size: 1rem;">Tilt Brush</b><br>
+                <b style="font-size: 1rem;">[by Google]</b>
+              </div>
+            </div>
+
+          </div>
+          <div class="column" style="width: 30%;">
+            <ul style="padding: 6rem 0 1rem;">
+              <li class="fragment check">creates virtual content</li>
+              <li class="fragment check">immersive virtual Reality</li>
+              <li class="fragment error">content static</li>
+              <li class="fragment error">No Physically-Based</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Designing in VR: Using Physics</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%">
+            <img src="assets/relatedworks/md6_2.jpeg" style="width: 100%;" />
+            <b>Claybook [Sebastian et al. 2018]</b><br>
+            <ul style="padding: 0 1rem;">
+              <li class="fragment check">Dynamic contents</li>
+              <li class="fragment check">Physically-Based behavior</li>
+              <li class="fragment error">No virtual Reality</li>
+              <li class="fragment error">No support to Rigid and Gas</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 50%;">
+            <img src="assets/relatedworks/md7_1.jpg" style="width: 100%;" />
+            <b>Fluid Sketching [Eroglu et al. 2018]</b><br>
+            <ul style="padding: 0 1rem;">
+              <li class="fragment check">Immersive virtual Reality</li>
+              <li class="fragment check">Fluid-based content</li>
+              <li class="fragment error">No support to Rigid and Gas</li>
+              <li class="fragment error">No Phase-Change</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Agenda</h1>
+
+        <div class="columns" style="padding-top: 6rem;">
+          <div class="column fragment highlight-blue" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li>XPBD</li>
+              <li>SPH</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Phase-Change</span>
+            <ul style="padding: 1rem 0;">
+              <li>Model Heat Transfer</li>
+              <li>Modifying properties in function of the heat</li>
+              <li>A general Method to Phase-Change</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Interactive Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li>Integrate simulations in virtual environments</li>
+              <li>Create tools that allows to interact</li>
+              <li>Evaluate the experience</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Background: Extended Position-Based Dynamics (XPBD)</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%">
+            <p class="fragment" style="font-size: 2rem; padding-top: 2rem;">Representation</p>
+            <ul style="padding: 1rem 0;">
+              <li class="fragment">A particle $p_{i}$, has a mass $m_{i}$, a position $x_{i}$ and a velocity $v_{i}$
+              </li>
+              <li class="fragment">A constraint $C_j(p_{i_{1}},p_{i_{2}},...,p_{n_{j}})$ , is a function $C_{j} : R^{3}
+                \rightarrow R $</li>
+            </ul>
+            <div style="position: relative;">
+              <img src="assets/methods/correction1.png" class="fragment image-animate" />
+              <img src="assets/methods/correction2.png" class="fragment image-animate" />
+              <img src="assets/methods/correction3.png" class="fragment image-animate" />
+              <img src="assets/methods/correction4.png" class="fragment image-animate" />
+            </div>
+
+          </div>
+          <div class="column" style="width: 50%;">
+            <p class="fragment" style="font-size: 2rem; padding-top: 2rem;">Constraint Projection</p>
+            <div class="fragment">
+              \begin{equation}
+              C(\textbf{x} + \Delta \textbf{x}) \approx C(\textbf{x}) + \nabla C(\textbf{x}) . \Delta \textbf{x} \succ 0
+              \label{eq:approx}
+              \end{equation}
+            </div>
+
+            <div style="position: relative;">
+              <img src="assets/methods/cp1.png" class="fragment image-animate" style="top: 3rem;" />
+              <img src="assets/methods/cp2.png" class="fragment image-animate" style="top: 3rem;" />
+
+              <p class="fragment">
+                \begin{equation}
+                \Delta \textbf{x} = \lambda \nabla C( \textbf{x}) \label{eq:lagrange}
+                \end{equation}
+              </p>
+
+              <img src="assets/methods/cp3.png" class="fragment image-animate" style="top: 3rem;" />
+              <img src="assets/methods/cp4.png" class="fragment image-animate" style="top: 3rem;" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Background: Smoothed Particle Hydrodynamic (SPH)</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%">
+            <p style="font-size: 2rem; padding:3rem 0;">Interpolation</p>
+            <div class="fragment">
+              \begin{equation}
+              A_i = \sum_{j} V_j A_j W_{ij}
+              \end{equation}
+            </div>
+          </div>
+          <div class="column" style="width: 35%;">
+            <div style="position: relative;">
+              <img src="assets/methods/fluid1.png" class="fragment image-animate" style="top: 0rem;" />
+              <img src="assets/methods/fluid2.png" class="fragment fade-in-then-out image-animate" style="top: 0rem;" />
+              <img src="assets/methods/fluid3.png" class="fragment fade-in-then-out image-animate" style="top: 0rem;" />
+              <img src="assets/methods/fluid4.png" class="fragment image-animate" style="top: 0rem;" />
+            </div>
+          </div>
+        </div>
+        <div class="columns fragment">
+          <div class="column" style="width: 50%;">
+            <img src="assets/methods/sph.png" style="width: 50%;" />
+          </div>
+          <div class="column" style="width: 40%">
+            <p style="font-size: 2rem; padding-top: 6rem">
+              Kernel Function
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Agenda</h1>
+
+        <div class="columns" style="padding-top: 5rem;">
+          <div class="column" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li>XPBD</li>
+              <li>SPH</li>
+            </ul>
+          </div>
+          <div class="column fragment highlight-red" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Phase-Change</span>
+            <ul style="padding: 1rem 0;">
+              <li>Model Heat Transfer</li>
+              <li>Modifying properties in function of the heat</li>
+              <li>A general Method to Phase-Change</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Interactive Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li>Integrate simulations in virtual environments</li>
+              <li>Create tools that allows to interact</li>
+              <li>Evaluate the experience</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out" data-background-video="assets/paper1/simulation.mp4">
+        <h1>Phase-Change</h1>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-Change</h1>
+        <img src="assets/paper1/overview.png" style="width:90%; max-height: 700px" />
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Modeling Heat</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <img src="assets/paper1/latent.png" style="width: 90%;" />
+            <span style="font-size: 2rem;">Latent Heat</span>
+            <div>
+              \begin{equation}
+              dL = c_{i} \Delta T dt
+              \end{equation}
+            </div>
+          </div>
+          <div class=" column" style="width: 50%;">
+            <div style="position: relative;">
+              <img src="assets/paper1/alg1.png" style="width: 100%;" />
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:0;top:20.3rem;padding:2px">
+                <rect width="90%" height="60" style="fill:none;stroke-width:4;stroke:brown" />
+              </svg>
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:0;top:4rem;padding:2px">
+                <rect width="72%" height="125" style="fill:none;stroke-width:4;stroke:red" />
+              </svg>
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:0;top:24.3rem;padding:2px">
+                <rect width="90%" height="80" style="fill:none;stroke-width:4;stroke:blue" />
+              </svg>
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:0;top:12.2rem;padding:2px">
+                <rect width="72%" height="125" style="fill:none;stroke-width:4;stroke:red" />
+              </svg>
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:0;top:30.3rem;padding:2px">
+                <rect width="90%" height="70" style="fill:none;stroke-width:4;stroke:grey" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Modeling Heat</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <span style="font-size: 2rem;">Temperature</span>
+            <div>
+              \begin{equation}
+              \left(\frac{dT}{dt}\right)_{i}=\left(\frac{dT}{dt}\right)_{i, j}+\left(\frac{dT}{dt}\right)_{i, b}
+              \end{equation}
+            </div>
+          </div>
+          <div class=" column" style="width: 50%;">
+
+          </div>
+        </div>
+        <div class="columns" style="width: 85%; margin: auto;">
+          <div class="column" style="width: 33.33%;">
+            <img src="assets/paper1/heat1.png" style="width: 100%;" />
+            <img src="assets/paper1/heat4.png" style="width: 100%;" />
+          </div>
+          <div class="column" style="width: 33.33%;">
+            <img src="assets/paper1/heat2.png" style="width: 100%;" />
+            <img src="assets/paper1/heat5.png" style="width: 100%;" />
+          </div>
+          <div class="column" style="width: 33.33%;">
+            <img src="assets/paper1/heat3.png" style="width: 100%;" />
+            <img src="assets/paper1/heat6.png" style="width: 100%;" />
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Coupling: Solid-Fluid-Gas</h1>
+        <div class="columns">
+          <div class=" column" style="width: 40%;padding-right: 0;">
+            <div style="padding-top: 6rem;">
+              <img src="assets/paper1/coupling.png" style="width: 100%;" />
+            </div>
+          </div>
+          <div class="column" style="width: 60%;padding-left: 0;">
+            <h2 style="font-size: 2rem;padding: 6rem 0 2rem;">Density</h2>
+            <div style="position: relative;">
+              \begin{equation}
+              \rho_{i}= \sum_{s} m_{s} W_{is} + \sum_{l} m_{l} W_{il} + \sum_{g} m_{g} W_{ig} + \sum_{b}
+              \frac{\rho_{0}}{\delta_{b}} W_{ib}
+              \end{equation}
+
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:9.5rem;top:-0.5rem;padding:2px">
+                <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:brown" />
+              </svg>
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:18rem;top:-0.5rem;padding:2px">
+                <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:blue" />
+              </svg>
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:26rem;top:-0.5rem;padding:2px">
+                <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:gray" />
+              </svg>
+              <svg class="fragment fade-in-then-out" width="100%" height="125"
+                style="position: absolute;left:35.5rem;top:-0.5rem;padding:2px">
+                <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:black" />
+              </svg>
+            </div>
+            <h2 style="font-size: 1.2rem;padding: 6rem 0 2rem;">Extended of the work [Akinci et al. 2012]</h2>
+          </div>
+
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-Change: Solid</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <div>
+              <img src="assets/paper1/overview1.png" style="width: 90%;" />
+            </div>
+            <span style="font-size: 2rem;">Stiffness</span>
+            <div>
+              \begin{equation}
+              E = \frac{2 E_{0} }{1 + e^{\Delta T}}
+              \end{equation}
+            </div>
+            <span style="font-size: 2rem;">Distance</span>
+            <div>
+              \begin{equation}
+              \Delta d_{0} = e \Delta T d_{0}
+              \end{equation}
+            </div>
+
+          </div>
+          <div class=" column" style="width: 50%;">
+            <div style="margin: auto;width: 80%;position: relative;">
+              <img src="assets/paper1/dilation1.png" class="fragment fade-in-then-out image-animate" />
+              <img src="assets/paper1/dilation2.png" class="fragment fade-in-then-out image-animate" />
+              <img src="assets/paper1/dilation3.png" class="fragment image-animate" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-Change: Solid-Liquid</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <div>
+              <img src="assets/paper1/overview2.png" style="width: 90%;" />
+            </div>
+            <span style="font-size: 2rem;">Distance Constraint</span>
+            <img src="assets/paper1/alg2.png" style="width: 70%;" />
+
+          </div>
+          <div class=" column" style="width: 50%; height: 100vh;">
+            <img src="assets/paper1/melt_1.png" class="fragment fade-in-then-semi-out image-animate"
+              style=" margin: auto;width:80%;" />
+            <img src="assets/paper1/melt_2.png" class="fragment image-animate" style=" margin: auto;width:80%;" />
+            <img src="assets/paper1/sol_1.png" class="fragment fade-in-then-semi-out image-animate"
+              style=" margin: auto;width:80%; top:45%" />
+            <img src="assets/paper1/sol_2.png" class="fragment image-animate" style="margin: auto;width: 80%;top:45%" />
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-Change: Liquid</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <div>
+              <img src="assets/paper1/overview3.png" style="width: 90%;" />
+            </div>
+            <span style="font-size: 2rem;">Viscosity</span>
+            <div>
+              \begin{equation}
+              \textbf{v}_{i}^{next} = \textbf{v}_{i} + \mu \sum_{j} (\textbf{v}_{i}-\textbf{v}_{j} ) W\left(\textbf{r} -
+              \textbf{r}_{j} , h\right)
+              \end{equation}
+            </div>
+            <span style="font-size: 1.25rem;">with $\mu$ dependents on Temperature</span>
+
+          </div>
+          <div class=" column" style="width: 48%;">
+            <div style="margin: auto;width: 75%;position: relative;">
+              <img src="assets/paper1/vis_1.png" class="fragment fade-in-then-semi-out image-animate" />
+              <img src="assets/paper1/vis_2.png" class="fragment fade-in-then-semi-out image-animate" />
+              <img src="assets/paper1/vis_3.png" class="fragment fade-in-then-semi-out image-animate" />
+              <img src="assets/paper1/vis_5.png" class="fragment image-animate" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-Change: Liquid-Gas</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <div>
+              <img src="assets/paper1/overview4.png" style="width: 90%;" />
+            </div>
+            <span style="font-size: 2rem;">Density & Gravity</span>
+
+            <img src="assets/paper1/function.png" style="width: 80%;" />
+
+          </div>
+          <div class=" column" style="width: 50%; height: 100vh;">
+            <img src="assets/paper1/vap_1.png" class="fragment fade-in-then-semi-out image-animate"
+              style=" margin: auto;width:70%;" />
+            <img src="assets/paper1/vap_2.png" class="fragment image-animate" style=" margin: auto;width:70%;" />
+            <img src="assets/paper1/cond_1.png" class="fragment fade-in-then-semi-out image-animate"
+              style=" margin: auto;width:70%; top:45%" />
+            <img src="assets/paper1/cond_2.png" class="fragment image-animate"
+              style="margin: auto;width: 70%;top:45%" />
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-Change: Gas</h1>
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <div>
+              <img src="assets/paper1/overview5.png" style="width: 90%;" />
+            </div>
+            <span style="font-size: 2rem;">Gravity</span>
+            <ul style="padding: 1rem 0;">
+              <li>positive constant gravity ($1 m/s^2$)</li>
+              <li>The density and gravity parameters remain constant</li>
+              <li>Non-physical</li>
+            </ul>
+
+          </div>
+          <div class=" column" style="width: 50%;">
+            <div style="margin: auto;width: 80%;position: relative;">
+              <img src="assets/paper1/gas_1.png" class="fragment fade-in-then-semi-out image-animate" />
+              <img src="assets/paper1/gas_2.png" class="fragment fade-in-then-semi-out image-animate" />
+              <img src="assets/paper1/gas_3.png" class="fragment fade-in-then-semi-out image-animate" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Phase-Change: Performance</h1>
+        <div>
+          <img src="assets/paper1/performance.png" style="width: 90%;" />
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Agenda</h1>
+
+        <div class="columns" style="padding-top: 5rem;">
+          <div class="column" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li>XPBD</li>
+              <li>SPH</li>
+            </ul>
+          </div>
+          <div class="column " style="width: 33.33%;">
+            <span style="font-size: 2rem;">Phase-Change</span>
+            <ul style="padding: 1rem 0;">
+              <li>Model Heat Transfer</li>
+              <li>Modifying properties in function of the heat</li>
+              <li>A general Method to Phase-Change</li>
+            </ul>
+          </div>
+          <div class="column fragment highlight-blue" style="width: 33.33%;">
+            <span style="font-size: 2rem;">Interactive Simulation</span>
+            <ul style="padding: 1rem 0;">
+              <li>Integrate simulations in virtual environments</li>
+              <li>Create tools that allows to interact</li>
+              <li>Evaluate the experience</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out" data-background-video="assets/paper2/demo.mp4">
+        <h1>Interactive Simulation</h1>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Interactive Simulation</h1>
+        <img src="assets/paper2/method.png" style="width:80%; padding-top: 2rem; max-height: 700px" />
+        <div class="column " style="width: 50%;">
+          <ul style="padding: 0 1rem;">
+            <li class="fragment highlight-blue">design and modeling 3D objects</li>
+            <li class="fragment highlight-blue">select material types, shapes, and sizes of the brush</li>
+            <li class="fragment highlight-blue">3D objects are unprovided of physical properties</li>
+            <li class="fragment highlight-blue">are represented as a set of particles</li>
+            <li class="fragment highlight-blue">users can touch, stretch, grasp, and move them</li>
+          </ul>
+        </div>
+        <div class="column" style="width: 50%;">
+          <ul style="padding: 0 1rem 0;">
+            <li class="fragment highlight-red">physics is assigned to the 3d object</li>
+            <li class="fragment highlight-red">objects interact with between them, with user and environment</li>
+            <li class="fragment highlight-red">based in XPBD solver</li>
+          </ul>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>World Discretization</h1>
+
+        <div class="column " style="width: 50%;">
+          <img src="assets/paper2/space.png" style="width: 90%; padding-top: 6rem;" />
+        </div>
+        <div class="column" style="width: 50%;">
+          <h2 style="font-size: 2rem;padding: 2rem 0 2rem;">World -> Discrete</h2>
+          <div>
+            \begin{equation}
+            p=(Q-C) \frac{|w|}{|W|}+c
+            \end{equation}
+          </div>
+          <h2 style="font-size: 2rem; padding: 2rem;">Discrete --> World</h2>
+          <div>
+            \begin{equation}
+            Q=(p-c)\frac{|W|}{|w|}+C
+            \end{equation}
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Design with particles</h1>
+
+        <div class="column " style="width: 50%; padding-right: 0; padding-left: 0%;">
+          <div style="margin: auto;width: 80%;position: relative;;height: 100vh;">
+
+            <img src="assets/paper2/correction1.png" class="fragment fade-in-then-out image-animate"
+              style="top: 20%;" />
+            <img src="assets/paper2/correction2.png" class="fragment fade-in-then-out image-animate"
+              style="top: 20%;" />
+            <img src="assets/paper2/correction3.png" class="fragment fade-in-then-out image-animate"
+              style="top: 20%;" />
+            <img src="assets/paper2/correction4.png" class="fragment fade-in-then-out image-animate"
+              style="top: 20%;" />
+            <img src="assets/paper2/correction5.png" class="fragment  image-animate" style="top: 20%;" />
+          </div>
+        </div>
+        <div class="column" style="width: 50%;">
+          <br>
+          <img src="assets/paper1/alg4.png" style="width: 90%;" />
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Particle Interpolation</h1>
+
+        <div class="column " style="width: 50%;">
+          <div style="margin: auto;width: 80%;position: relative;">
+            <img src="assets/paper1/interpolation0.png" class="fragment fade-in-then-out image-animate"
+              style="top:5rem" />
+            <img src="assets/paper1/interpolation1.png" class="fragment fade-in-then-out image-animate"
+              style="top:5rem" />
+            <img src="assets/paper1/interpolation2.png" class="fragment fade-in-then-out image-animate"
+              style="top:5rem" />
+            <img src="assets/paper1/interpolation3.png" class="fragment image-animate" style="top:5rem" />
+          </div>
+        </div>
+        <div class="column" style="width: 50%; padding-left: 0%;">
+          <h2 style="font-size: 2rem;padding: 6rem 0 4rem;">velocity Direction</h2>
+          <div>
+            \begin{equation}
+            P'(i)=P - i \frac{V}{||V||} d_{particle} \quad \quad \forall i \in [0, i_{max}]
+            \end{equation}
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Object Manager</h1>
+        <br>
+        <div class="column " style="width: 50%;">
+          <span style="font-size: 2rem;">Rigid: mass center</span><br>
+          <img src="assets/paper2/solid.png" style="width: 57%;" /><br>
+          <span style="font-size: 2rem;">Soft: clusters</span><br>
+          <img src="assets/paper2/soft.png" style="width: 57%;" />
+        </div>
+        <div class="column" style="width: 50%;">
+          <span style="font-size: 2rem;">Rigid: density</span><br>
+          <img src="assets/paper2/fluid.png" style="width: 55%;" /><br>
+          <span style="font-size: 2rem;">Soft: distance constraint</span>
+          <img src="assets/paper2/distanceConstraint.png" style="width: 60%;" />
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>User Interface</h1>
+
+        <div class="column " style="width: 50%;">
+          <img src="assets/paper2/keys.png" style="width: 70%;" />
+          <img src="assets/paper2/tools.png" style="width: 40%;" />
+        </div>
+        <div class="column" style="width: 50%;">
+          <video src="assets/paper2/interface.mp4" autoplay controls style="width: 100%;" />
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Immersive Experience</h1>
+
+        <div class="column " style="width: 30%;">
+          <ul style="padding: 4rem 2rem;">
+            <li class="fragment highlight-blue">Training stage</li>
+            <li class="fragment highlight-blue">Drawing stage</li>
+            <li class="fragment highlight-blue">Expression stage</li>
+          </ul>
+        </div>
+        <div class="column" style="width: 70%;display: table;">
+          <img src="assets/paper2/cap2.png" style="width: 55%;" />
+          <img src="assets/paper2/cap4.png" style="width: 25%;" />
+          <img src="assets/paper2/cap7.png" style="width: 55%;" />
+          <img src="assets/paper2/cap5.png" style="width: 25%;" />
+        </div>
+      </section>
+
+
+
+      <section data-transition="fade-in fade-out">
+        <h1>Rendering</h1>
+
+        <div class="column " style="width: 50%;">
+          <span style="font-size: 2rem;">To Fluid</span>
+          <ul style="padding: 1rem 1rem;">
+            <li>using Anisotropic Kernels, based on the neighboring particles</li>
+            <li>implemented by Nvidia</li>
+            <li>good look</li>
+          </ul>
+          <span style="font-size: 2rem;">To Rigid and Solid</span>
+          <ul style="padding: 1rem 0;">
+            <li>marching cubes [Lorensen and Cline, 1980]</li>
+            <li>filter only surface particles</li>
+            <li>implemented and integrated into our Model</li>
+            <li>poor look for large radius</li>
+
+          </ul>
+        </div>
+        <div class="column" style="width: 50%;">
+          <img src="assets/paper2/demofinal.jpg" style="width: 90%;" />
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Other Results</h1>
+
+        <div class="column " style="width: 50%;">
+          <video src="assets/paper2/demo2.mp4" autoplay controls style="width: 100%;" />
+        </div>
+        <div class="column" style="width: 50%;">
+          <video src="assets/paper2/demo3.mp4" autoplay controls style="width: 100%;" />
+        </div>
+      </section>
+
+      <section class="presentation" data-transition="fade-in fade-out">
+        <div class="top">
+          <div class="title">
+            Conclusion
+          </div>
+        </div>
+        <div class="bottom">
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Towards Interactive Simulation of Soft, Rigid and Viscous Objects in Immersive Virtual Reality</h1>
+
+        <img src="assets/overview.png" style="width: 90%;" />
+
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <ul style="padding: 1rem 4rem;">
+              <li class="fragment highlight-red">Phase-Change: S--L & L--G</li>
+              <li class="fragment highlight-red">Heat Transfer: contact & convection</li>
+              <li class="fragment highlight-red">Solid manager: melting & solidification</li>
+              <li class="fragment highlight-red">Density & Gravity Function: vaporization & condensation</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 50%;">
+            <ul style="padding: 1rem 4rem;">
+              <li class="fragment highlight-blue">Soft, Rigid and Viscous Materials </li>
+              <li class="fragment highlight-blue">Particle Manager: Add physics to S, R \& V</li>
+              <li class="fragment highlight-blue">Dynamic 3D sketch</li>
+              <li class="fragment highlight-blue">Interaction with 3D sketch</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Towards Interactive Simulation of Soft, Rigid and Viscous Objects in Immersive Virtual Reality</h1>
+
+        <img src="assets/working.png" style="width: 90%;" />
+
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <ul style="padding: 1rem 4rem;">
+              <li class="fragment highlight-red">parallelize</li>
+              <li class="fragment highlight-red">hand model</li>
+            </ul>
+          </div>
+          <div class="column" style="width: 50%;">
+            <ul style="padding: 1rem 4rem;">
+              <li class="fragment highlight-blue">improve rendering & user interface</li>
+              <li class="fragment highlight-blue">hand interaction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column" style="width: 25%;">
+            <img src="assets/hand_1.png" style="width: 100%;" />
+          </div>
+          <div class="column" style="width: 25%;">
+            <img src="assets/hand_2.png" style="width: 100%;" />
+          </div>
+          <div class="column" style="width: 25%;">
+            <img src="assets/hand_3.png" style="width: 100%;" />
+          </div>
+          <div class="column" style="width: 25%;">
+            <img src="assets/hand_4.png" style="width: 100%;" />
+          </div>
+        </div>
+      </section>
+      <section data-transition="fade-in fade-out">
+        <h1>Towards Interactive Simulation of Soft, Rigid and Viscous Objects in Immersive Virtual Reality</h1>
+
+        <img src="assets/future.png" style="width: 90%;" />
+
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <!-- <span style="font-size: 2rem;">Phase-Change</span> -->
+            <img src="assets/other_1.jpeg" style="width: 300px;" />
+            <img src="assets/other_2.png" style="width: 300px;" />
+          </div>
+          <div class="column" style="width: 50%;">
+            <!-- <span style="font-size: 2rem;">Interactive Simulation</span> -->
+            <img src="assets/hactip2.png" style="width: 300px;" />
+            <img src="assets/haptic.png" style="width: 300px;" />
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Publications</h1>
+
+        <div class="columns">
+          <div class="column" style="width: 50%;">
+            <img src="assets/paper1/paper1.png" style="width: 50%;" />
+            <ul style="margin: auto;display: table;">
+              <li style="padding-bottom: 0;"><a href="https://www.youtube.com/watch?v=NxDGKqG4MIA">Video</a></li>
+              <li><a href="https://github.com/aibel18/phasechange">Code</a></li>
+            </ul>
+          </div>
+          <div class="column" style="width: 50%;">
+            <img src="assets/paper2/paper2.png" style="width: 50%;" />
+            <ul style="margin: auto;display: table;">
+              <li style="padding-bottom: 0;"><a href="https://www.youtube.com/watch?v=SmifEHm6Qfo">Video</a></li>
+              <li><a href="https://github.com/aibel18/flex-sketching">Code</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section data-transition="fade-in fade-out">
+        <h1>Thanks you!!</h1>
+
+        <h1 style="color: #263238;padding: 4rem 0 1rem; text-align: center;font-size: 2rem;">Abel Ticona Larico</h1>
+        <h1 style="color: #546e7a;padding: 1rem; text-align: center;">Instituto de Informatica --- UFRGS</h1>
+        <h1 style="padding: 0.5rem; text-align: center;font-size: 1.3rem;">
+          <a href="http://www.inf.ufrgs.br/~jatlarico" style="color: #546e7a;">http://www.inf.ufrgs.br/~jatlarico</a>
+        </h1>
+        <h1 style="padding: 0.5rem; text-align: center;font-size: 1.3rem;padding-bottom: 4rem;">
+          <a href="https://aibel18.github.io" style="color: #546e7a;">https://aibel18.github.io</a>
+        </h1>
+        <br>
+        <img src="logo-white.png" style="width: 300px;margin: auto;" />
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script>
+
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      // width: 960,
+      // height: 600,
+      margin: 0,
+      padding: 0,
+      disableLayout: true,
+      slideNumber: true,
+      math: {
+        config: 'TeX-MML-AM_CHTML-full',
+        // pass other options into MathJax.Hub.Config()
+        TeX: { Macros: { RR: "{\bf R}" }, equationNumbers: { autoNumber: "AMS" } },
+        jax: ["input/TeX", "output/CommonHTML"], "CommonHTML": { matchFontHeight: false, scale: 120 }
+      },
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath]
+    });
+
+    // Change the size of our presentation
+    //document.querySelector('.slides').style.width = '100vw';
+
+    // Make reveal.js aware of the size change
+    //Reveal.layout();
+  </script>
+</body>
+
+</html>

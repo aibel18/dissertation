@@ -1,0 +1,144 @@
+@font-face {
+    font-family: roboto-regular;
+    src: url('fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: roboto-bold;
+    src: url('fonts/Roboto-Bold.ttf');
+}
+
+* {
+    font-family: roboto-regular!important;
+}
+
+.banner {
+    background-color: #263238;
+    height: 4rem;
+}
+
+section {
+    height: inherit!important;
+    width: inherit!important;
+    top: 0!important;
+    margin: 0 !important;
+    padding: 0 !important;
+    /* box-shadow: 1px 1px 8px #888888; */
+    font-size: 1.5rem;
+    color: #263238;
+}
+.reveal .slide-number{
+  color: #263238;
+  background-color: initial;
+  font-size: 1rem;
+}
+
+.presentation .top {
+    height: 60%;
+    background-color: #263238;
+    position: relative;
+}
+.presentation .bottom {
+    height: 40%;
+    background-color: white;
+    position: relative;
+}
+
+section h1 {
+    font-size: 1.75rem;
+    color: white;
+    height: 2rem;
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+section.presentation .title{
+  font-size: 3rem;
+  font-weight: 700;
+  position: absolute;
+  width: 60%;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  color: white;
+  padding: 1rem 1.5rem;  
+}
+section.presentation .title-data{
+  font-size: 3rem;
+  position: absolute;
+  width: 70%;
+  right: 0;
+  top: 0;
+  text-align: right;
+  color: #263238;
+  padding: 1rem 3rem;
+  display: grid;  
+}
+
+.columns{
+  width: 100%;
+  position: relative;
+}
+.columns::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.column{
+  padding: 1rem;
+  box-sizing: border-box;
+  float: left;
+  position: relative;
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+  text-align: left;
+}
+ul li::before {
+  content: "\2022";
+  color: red;
+  font-weight: bold;
+  display: inline-block; 
+  width: 2rem;
+  margin-left: -2rem;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+ul li{
+  padding: 1rem 0rem 1rem 2rem;
+}
+
+.check::after {
+  content: "\2714";
+  color: green;
+  font-weight: bold;
+  display: inline-block;
+  width: 2rem;
+  font-size: 1.2em;
+  vertical-align: middle;
+  float: right;
+}
+.error::after {
+  content: "\2716";
+  color: red;
+  font-weight: bold;
+  display: inline-block;
+  width: 2rem;
+  font-size: 1.2em;
+  vertical-align: middle;
+  float: right;
+}
+
+.image-animate{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.reveal .slides section .fragment.grow.visible {
+    transform: none;
+    /* scale(1.1); */
+    font-size: 1.6rem;
+}
