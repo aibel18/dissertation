@@ -449,11 +449,11 @@
           <div class="column" style="width: 50%;">
             <img src="assets/paper1/latent.png" style="width: 90%;" />
             <span style="font-size: 2rem;">Latent Heat</span>
-            <div>
-              \begin{equation}
-              dL = c_{i} \Delta T dt
-              \end{equation}
-            </div>
+
+            \begin{equation}
+            dL = c_{i} \Delta T dt
+            \end{equation}
+
           </div>
           <div class=" column" style="width: 50%;">
             <div style="position: relative;">
@@ -531,7 +531,7 @@
               \end{equation}
 
               <svg class="fragment fade-in-then-out" width="100%" height="125"
-                style="position: absolute;left:9.5rem;top:-0.5rem;padding:2px">
+                style="position: absolute;left:8.1rem;top:-0.5rem;padding:2px">
                 <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:brown" />
               </svg>
               <svg class="fragment fade-in-then-out" width="100%" height="125"
@@ -539,11 +539,11 @@
                 <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:blue" />
               </svg>
               <svg class="fragment fade-in-then-out" width="100%" height="125"
-                style="position: absolute;left:26rem;top:-0.5rem;padding:2px">
+                style="position: absolute;left:28.3rem;top:-0.5rem;padding:2px">
                 <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:gray" />
               </svg>
               <svg class="fragment fade-in-then-out" width="100%" height="125"
-                style="position: absolute;left:35.5rem;top:-0.5rem;padding:2px">
+                style="position: absolute;left:38.9rem;top:-0.5rem;padding:2px">
                 <rect width="136" height="90" style="fill:none;stroke-width:4;stroke:black" />
               </svg>
             </div>
@@ -612,12 +612,10 @@
               <img src="assets/paper1/overview3.png" style="width: 90%;" />
             </div>
             <span style="font-size: 2rem;">Viscosity</span>
-            <div>
-              \begin{equation}
-              \textbf{v}_{i}^{next} = \textbf{v}_{i} + \mu \sum_{j} (\textbf{v}_{i}-\textbf{v}_{j} ) W\left(\textbf{r} -
-              \textbf{r}_{j} , h\right)
-              \end{equation}
-            </div>
+            \begin{equation}
+            \textbf{v}_{i}^{next} = \textbf{v}_{i} + \mu \sum_{j} (\textbf{v}_{i}-\textbf{v}_{j} ) W\left(\textbf{r} -
+            \textbf{r}_{j} , h\right)
+            \end{equation}
             <span style="font-size: 1.25rem;">with $\mu$ dependents on Temperature</span>
 
           </div>
@@ -749,11 +747,9 @@
         </div>
         <div class="column" style="width: 50%;">
           <h2 style="font-size: 2rem;padding: 2rem 0 2rem;">World -> Discrete</h2>
-          <div>
-            \begin{equation}
-            p=(Q-C) \frac{|w|}{|W|}+c
-            \end{equation}
-          </div>
+          \begin{equation}
+          p=(Q-C) \frac{|w|}{|W|}+c
+          \end{equation}
           <h2 style="font-size: 2rem; padding: 2rem;">Discrete --> World</h2>
           <div>
             \begin{equation}
@@ -802,11 +798,9 @@
         </div>
         <div class="column" style="width: 50%; padding-left: 0%;">
           <h2 style="font-size: 2rem;padding: 6rem 0 4rem;">velocity Direction</h2>
-          <div>
-            \begin{equation}
-            P'(i)=P - i \frac{V}{||V||} d_{particle} \quad \quad \forall i \in [0, i_{max}]
-            \end{equation}
-          </div>
+          \begin{equation}
+          P'(i)=P - i \frac{V}{||V||} d_{particle} \quad \quad \forall i \in [0, i_{max}]
+          \end{equation}
         </div>
       </section>
 
@@ -1039,10 +1033,10 @@
       disableLayout: true,
       slideNumber: true,
       math: {
-        config: 'TeX-MML-AM_CHTML-full',
+        //config: 'TeX-MML-AM_CHTML-full',
         // pass other options into MathJax.Hub.Config()
         TeX: { Macros: { RR: "{\bf R}" }, equationNumbers: { autoNumber: "AMS" } },
-        jax: ["input/TeX", "output/CommonHTML"], "CommonHTML": { matchFontHeight: false, scale: 120 }
+        jax: ["input/TeX", "output/CommonHTML"], "CommonHTML": { matchFontHeight: false, scale: 130 }
       },
       // Learn about plugins: https://revealjs.com/plugins/
       plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath]
